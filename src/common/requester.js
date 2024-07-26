@@ -1,8 +1,9 @@
 import fetch from "node-fetch";
 
 export class Requester {
-    constructor(tokenProvider) {
+    constructor(tokenProvider, accessToken = null) {
         this.tokenProvider = tokenProvider;
+        this.accessToken = accessToken;
     }
 
     async request(endpoint, parameters) {
@@ -16,7 +17,7 @@ export class Requester {
         return await fetch(url, {
             method: endpoint.method,
             headers: {
-                Authorization: `Bearer ${await this.tokenProvider.getToken(endpoint.audience)}`
+                Authorization: `Bearer ${this.accessToken || await this.tokenProvider.getToken(endpoint.audience)}`
             }
         });
     }

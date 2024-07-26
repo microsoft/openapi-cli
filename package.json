@@ -1,6 +1,6 @@
 {
   "name": "apizard",
-  "version": "0.0.5",
+  "version": "0.1.4",
   "description": "",
   "main": "src/main.js",
   "type": "module",

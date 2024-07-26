@@ -8,6 +8,7 @@ export class OptionProvider {
             .option('-a, --audience <string>', 'Audience for the token')
             .option('-b, --base-url <string>', 'Base URL for the API')
             .option('-w, --web', 'Use web UI')
+            .option('-t, --access-token <string>', 'Access token to use instead of Azure CLI token')
             .parse()
             .opts();
     }

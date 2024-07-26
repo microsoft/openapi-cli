@@ -23,7 +23,7 @@ export class CommandLineUI {
         }
 
         const response = await prompts({
-            "type": 'select',
+            "type": 'autocomplete',
             "name": "endpoint",
             "message": "Select an endpoint",
             "choices": options,
@@ -34,6 +34,8 @@ export class CommandLineUI {
     }
 
     async renderParameterOptions(endpoint) {
+        if (!endpoint.parameters || endpoint.parameters.length === 0) return {};
+
         const questions = [ ]
         for (let param of endpoint.parameters) {
             questions.push({
@@ -47,14 +49,17 @@ export class CommandLineUI {
     }
 
     async renderResults(response) {
-        if (response.ok) {
-            console.log(response.status, response.statusText)
+        console.log(response.status, response.statusText) ;
+        if (response.status === 204) {
+            return;
+        }
+
+        try {
             const jsonResult = await response.json()
 
             console.log(JSON.stringify(jsonResult, null, 2))
-        } else {
-            console.log(response.status, response.statusText)
+        } catch {
+            console.log('The response is not JSON or failed to parse.')
         }
-
     }
 }
