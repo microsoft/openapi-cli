@@ -12,9 +12,10 @@ import { CommandLineUI } from "./cli/command-line-UI.js";
     const specLoader = new SpecLoader();
     const specParser = new SpecParser();
     const azureCLITokenProvider = new AzureCLITokenProvider();
-    const requester = new Requester(azureCLITokenProvider);
+    const options = optionsProvider.getOptions();
 
-    const options = optionsProvider.getOptions()
+    console.log(options);
+    const requester = new Requester(azureCLITokenProvider, options.accessToken);
     const spec = await specLoader.load(options);
 
     let environment = null;
