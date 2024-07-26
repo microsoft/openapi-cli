@@ -7,14 +7,14 @@ export class CommandLineUI {
     }
 
     async run() {
-        const endpoint = await this.renderEndpointOptions();
-        const parameters = await this.renderParameterOptions(endpoint);
+        const endpoint = await this.promptEndpointOptions();
+        const parameters = await this.promptParameterOptions(endpoint);
 
         const result = await this.requestor.request(endpoint, parameters)
         await this.renderResults(result);
     }
 
-    async renderEndpointOptions() {
+    async promptEndpointOptions() {
         const options = []
         for (let endpoint in this.endpoints) {
             options.push({
@@ -33,7 +33,7 @@ export class CommandLineUI {
         return response.endpoint;
     }
 
-    async renderParameterOptions(endpoint) {
+    async promptParameterOptions(endpoint) {
         if (!endpoint.parameters || endpoint.parameters.length === 0) return {};
 
         const questions = [ ]

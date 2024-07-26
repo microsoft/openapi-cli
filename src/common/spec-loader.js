@@ -1,12 +1,11 @@
 import fetch from "node-fetch";
 import fs from "fs";
-import path from "path";
 
 export class SpecLoader {
     async load(options) {
         if (!options.spec) throw new Error("Spec location is required")
-        let spec = this.isWebPath(options.spec) ? await this.loadWebSpec(options.spec) : await this.loadLocalSpec(options.spec);
 
+        let spec = this.isWebPath(options.spec) ? await this.loadWebSpec(options.spec) : await this.loadLocalSpec(options.spec);
         if (!spec) throw new Error("Failed to load spec.")
 
         return spec;
@@ -47,7 +46,6 @@ export class SpecLoader {
             });
         })
     }
-
 
 }
 
