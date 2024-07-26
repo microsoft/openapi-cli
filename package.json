@@ -1,0 +1,26 @@
+{
+  "name": "apizard",
+  "version": "0.0.5",
+  "description": "",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "apizard": "node src/main.js"
+  },
+  "bin": {
+    "apizard": "./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/openapi-cli.git"
+  },
+  "author": "Won Song <wosong@microsoft.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/identity": "^4.4.0",
+    "commander": "^12.1.0",
+    "node-fetch": "^3.3.2",
+    "prompts": "^2.4.2"
+  }
+}
