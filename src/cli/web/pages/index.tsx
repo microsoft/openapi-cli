@@ -1,6 +1,8 @@
 // pages/index.tsx
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
+import styles from './styles.module.css';
+
 
 type Parameter = {
   name: string;
@@ -50,9 +52,6 @@ type Data = {
   };
 };
 
-type Props = {
-  data: Data;
-};
 
 const CollapsibleSchema = ({ schema, name }: { schema: any, name: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +59,7 @@ const CollapsibleSchema = ({ schema, name }: { schema: any, name: string }) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div style={{ marginLeft: '20px' }}>
+    <div className={styles.collapsibleSchema}>
       <button
         onClick={toggleOpen}
         style={{
@@ -81,9 +80,13 @@ const CollapsibleSchema = ({ schema, name }: { schema: any, name: string }) => {
           {Object.entries(schema).map(([key, value]) => (
             <div key={key}>
               {typeof value === 'object' && value !== null ? (
+                (value as any).type === 'array' ? (
+                  <CollapsibleSchema schema={(value as any).items} name={`${key} (array)`} />
+                ) : (
                 <CollapsibleSchema schema={value} name={key} />
-              ) : (
-                <div style={{ marginLeft: '20px' }}>
+              )
+              ):(
+                <div className={styles.schemaItem}>
                   <span>{key}: {JSON.stringify(value)}</span>
                 </div>
               )}
@@ -116,52 +119,56 @@ const Home = ({ data, generatedObjects }:  { data: Data, generatedObjects: any }
   const renderPaths = (paths: { [key: string]: Path }) => {
     
     return Object.keys(paths).map((pathKey) => {
-      const ref = paths[pathKey]?.get?.responses?.['200']?.content?.['application/json']?.schema?.items?.$ref;
+      const methods = Object.keys(paths[pathKey]);
+      let ref = null;
+
+    // Iterate over methods to find the $ref
+    for (const method of methods) {
+      const schema = paths[pathKey][method]?.responses?.['200']?.content?.['application/json']?.schema;
+      ref = schema?.items?.$ref || schema?.$ref;
+      if (ref) break; // Stop if $ref is found
+    }
+      
       const refName = ref ? ref.split('/').pop() : null;
       const object = refName ? generatedObjects[refName] : null;
       const isOpen = openStates[pathKey] || false;
-
+      
       return (
-      <div key={pathKey}>
-        <h3>
-          {pathKey}
-          </h3>
-        <div>
-          {Object.keys(paths[pathKey]).map((methodKey) => (
-            <div key={methodKey}>
-              {renderTextBoxes(paths[pathKey][methodKey].parameters)}
-              <button>Test</button>
-              <div> Schema
-                <button
-              onClick={() => toggleOpen(pathKey)}
-              style={{
-                border: 'none',
-                background: 'none',
-                cursor: 'pointer',
-                transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                transition: 'transform 0.2s',
-                marginRight: '5px',
-                color: isOpen ? 'black' : 'gray',
-              }}
+        <div key={pathKey}>
+          <div className={styles.pathHeading} onClick={() => toggleOpen(pathKey)}>
+          {methods.map((methodKey) => (
+            <button 
+              key={methodKey}
+              className={`${styles.toggleButton} ${styles.collapsiblePath}`}
             >
-              ▶ 
+              {methodKey.toUpperCase()}
             </button>
-              {isOpen && object && (
+            ))}
+            {pathKey}
+          </div>
+          {isOpen && (
+            <div className={styles.pathContent}>
+              {methods.map((methodKey) => (
+                <div className={styles.textBoxes} key={methodKey}>
+                  {renderTextBoxes(paths[pathKey][methodKey].parameters)}
+                  <button className={styles.testButton}>Test</button>
+                  <div className={styles.schematext}>
+                    Schema
                     <CollapsibleSchema schema={object} name={refName || ''} />
-                )}
+                  </div>
+                </div>
+              ))}
             </div>
-            </div>
-          ))}
+          )}
         </div>
-      </div>
       );
-  });
+    });
   };
 
   return (
     <div>
-      <h1>{data.info.title}</h1>
-      <p>{data.info.description}</p>
+      <h1 className={styles.heading}>{data.info.title}</h1>
+      <p className={styles.apiName}>Description: {data.info.description}</p>
       <div>{renderPaths(data.paths)}</div>
     </div>
   );
@@ -173,7 +180,19 @@ const processProperties = (properties: any, schemas: any): any => {
   for (const [propName, propDetails] of Object.entries(properties)) {
     const propDetailsAny: any = propDetails;
     if (propDetailsAny.type !== undefined) {
-      object[propName] = propDetailsAny.type;
+      if (propDetailsAny.type === 'array' && propDetailsAny.items?.$ref) {
+        const refName = propDetailsAny.items.$ref.split('/').pop();
+        if (refName && schemas[refName]) {
+          object[propName] = {
+            type: 'array',
+            items: processProperties(schemas[refName].properties, schemas),
+          };
+        } else {
+          object[propName] = { type: 'array', items: null };
+        }
+      } else {
+        object[propName] = { type: propDetailsAny.type };
+      }
     } else if (propDetailsAny.$ref !== undefined) {
       const refName = propDetailsAny.$ref.split('/').pop();
       if (refName && schemas[refName]) {
