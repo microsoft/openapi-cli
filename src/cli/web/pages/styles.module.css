@@ -1,0 +1,94 @@
+.heading {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    font-family:"Segoe UI", "Noto Sans",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font: Montserrat;
+    color: #333;
+    margin: 20px 0;
+    padding: 10px 0;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .apiName{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #5f5d5d;
+  }
+  .collapsiblePath{
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .pathHeading {
+    font-family:"Segoe UI", "Noto Sans",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  
+  .toggleButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+    margin-right: 5px;
+  }
+  
+  .toggleButtonOpen {
+    transform: rotate(90deg);
+  }
+  
+  .collapsibleSchema {
+    margin-left: 20px;
+    font-family:"Segoe UI", "Noto Sans",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+  
+  .schemaItem {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-family:"Segoe UI", "Noto Sans",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+  
+  .schematext{
+    margin-left: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .pathContent{
+    margin-left: 80px;
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #f3efefd5;
+    font-family:"Segoe UI", "Noto Sans",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+  
+  .textBoxes{
+    margin-top: 30px;
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; 
+  }
+  
+  .testButton {
+    padding: 10px 20px; /* Padding inside the button */
+    background-color: #007bff; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Margin above the button */
+  }

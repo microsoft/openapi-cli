@@ -1,0 +1,3728 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "HRCore Entity API",
+        "description": "HR Experiences People API",
+        "termsOfService": "https://www.microsoft.com/en-us/servicesagreement/",
+        "contact": {
+            "name": "EmployeeExperience Team",
+            "email": "ravigoridir@microsoft.com"
+        },
+        "version": "v1"
+    },
+    "paths": {
+        "/api/v1/Details/{offset}/getByOffset/{entities}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{offset}/getByOffsetForIdsOnly/{entities}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{offset}/getByOffsetForSimpleIdsOnly/{entities}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetailsSimpleResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetailsSimpleResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetailsSimpleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{personnelNumber}/getByPersonnelNumber/{entities}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "personnelNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{positionNumber}/getByPositionNumber/{entities}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "positionNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{personnelNumber}/getByPersonnelNumberWithDomainData/{entities}/{language}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "personnelNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "en-us"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Details/{positionNumber}/getByPositionNumberWithDomainData/{entities}/{language}": {
+            "get": {
+                "tags": [
+                    "Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "positionNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "en-us"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Events/{offset}/getByOffset/{types}": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Get Events based on requested offset to next 100 (batched) records.",
+                "description": "Examples <br /> types : hireevent,terminationprocessevent,leaveofabsenceprocessevent,datachangeprocessevent,transferprocessevent, cspositionassignmentprocessevent  <br /> offset : 0000000010658349  <br />",
+                "operationId": "GetEventsByEventTypesAndOffsetAsync",
+                "parameters": [
+                    {
+                        "name": "types",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "en-us"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EventsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EventsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EventsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/PositionDetails/{positionNumber}/{entities}": {
+            "get": {
+                "tags": [
+                    "PositionDetails"
+                ],
+                "summary": "Get Position entity details by PositionNumber",
+                "description": "Examples <br /> entities : reportsto,positiondetail,worklocation,financecompany,jobtitletaxonomydetail  <br /> positionNumber : 1234  <br />",
+                "operationId": "GetPositionDetailsByIdAsync",
+                "parameters": [
+                    {
+                        "name": "positionNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PositionDetailsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/PositionDetails/{personnelNumber}/getByPersonnelNumber/{entities}": {
+            "get": {
+                "tags": [
+                    "PositionDetails"
+                ],
+                "summary": "Get Position entity details by PersonnelNumber of Employee",
+                "description": "Examples <br /> entities : reportsto,positiondetail,worklocation,financecompany,jobtitletaxonomydetail  <br /> personnelNumber : 1234  <br />",
+                "operationId": "GetPositionDetailsByPersonnelNumberAsync",
+                "parameters": [
+                    {
+                        "name": "personnelNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PositionDetailsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/PositionDetails/{offset}/getFromOffset/{entities}": {
+            "get": {
+                "tags": [
+                    "PositionDetails"
+                ],
+                "summary": "Get Position entity details based on requested offset to next 100 (batched) records.",
+                "description": "Examples <br /> entities : reportsto,positiondetail,worklocation,financecompany,jobtitletaxonomydetail  <br /> offset : 0000000010658349  <br />",
+                "operationId": "GetPositionDetailsFromOffsetAsync",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PositionDetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/PositionDetails/{offset}/getFromOffset/{entities}/returnIdsOnly": {
+            "get": {
+                "tags": [
+                    "PositionDetails"
+                ],
+                "summary": "Get list of PositionNumbers based on requested offset to next 100(batched) records.",
+                "description": "Examples <br /> entities : reportsto,positiondetail,worklocation,financecompany,jobtitletaxonomydetail  <br /> offset : 0000000010658349  <br />",
+                "operationId": "GetPositionNumbersFromOffsetAsync",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PositionDetailsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ProfileDetails/{personnelNumber}/{entities}": {
+            "get": {
+                "tags": [
+                    "ProfileDetails"
+                ],
+                "summary": "Get Profile entity details by personnelNumber",
+                "description": "Examples <br /> entities : personneldata,position,addressbooktitle,personname,workdata  <br /> personnelNumber : 1234  <br />",
+                "operationId": "GetPersonDetailsByIdAsync",
+                "parameters": [
+                    {
+                        "name": "personnelNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ProfileDetails/{offset}/getFromOffset/{entities}": {
+            "get": {
+                "tags": [
+                    "ProfileDetails"
+                ],
+                "summary": "Get Profile entity details based on requested offset to next 100 (batched) records.",
+                "description": "Examples <br /> entities : personneldata,position,addressbooktitle,personname,workdata  <br /> offset : 0000000010658349  <br />",
+                "operationId": "GetPersonDetailsFromOffsetAsync",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ProfileResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ProfileDetails/{offset}/getFromOffset/{entities}/returnIds": {
+            "get": {
+                "tags": [
+                    "ProfileDetails"
+                ],
+                "summary": "Get PersonnelNumber list based on requested offset to next 100 (batched) records.",
+                "description": "Examples <br /> entities : personneldata,position,addressbooktitle,personname,workdata  <br /> offset : 0000000010658349  <br />",
+                "operationId": "GetPernersFromOffsetAsync",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "entities",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ProfileResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessageResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AddressBookTitleData": {
+                "type": "object",
+                "properties": {
+                    "addressBookTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BasePayData": {
+                "type": "object",
+                "properties": {
+                    "compaRatio": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "payGroupId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fteSalary": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "basePayCurrencyID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fullTimeAnnualSalary": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "actualBasePayAmount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "hourlyRate": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "meritPercentage": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "meritAmount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "adjustmentAmount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "adjustmentPercentage": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "promotionPercentage": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "promotionAmount": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CandidateData": {
+                "type": "object",
+                "properties": {
+                    "candidateID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "neoLocation": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "collegeOrMachHire": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "flexTime": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "candidacy": {
+                        "$ref": "#/components/schemas/ICandidacy"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CitizenshipData": {
+                "type": "object",
+                "properties": {
+                    "primaryCitizenship": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "secondaryCitizenship": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DetailData": {
+                "type": "object",
+                "properties": {
+                    "vacantPositionIndicator": {
+                        "type": "boolean"
+                    },
+                    "reportsToPositionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "projectCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionTitleName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionStatusId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionShortTitleName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "organizationCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "investmentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "costCenterCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "companyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "businessCardTitleName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignmentTypeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignedBuildingId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionComment": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionTypeID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionOccupationalClassificationId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "positionStartDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "fullTimeEquivalentOnPosition": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "investmentTypePositionIndicator": {
+                        "type": "boolean"
+                    },
+                    "employmentContractTypeID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionChangeReason": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ropChangeReason": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workForceClassId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "employeeTypeID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DetailsResponse": {
+                "type": "object",
+                "properties": {
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionDetails": {
+                        "$ref": "#/components/schemas/PositionDetailsResponse"
+                    },
+                    "profileEventDetail": {
+                        "$ref": "#/components/schemas/EventProfileData"
+                    },
+                    "profileDetails": {
+                        "$ref": "#/components/schemas/ProfileResponse"
+                    },
+                    "domainData": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DomainData"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DetailsSimpleResponse": {
+                "type": "object",
+                "properties": {
+                    "lastOffset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PersonPosition"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DomainData": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "languageCode": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EmergencyContactData": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IEmergencyContactInfo"
+                        },
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EmploymentClassificationData": {
+                "type": "object",
+                "properties": {
+                    "workForceClassId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignmentTypeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EmploymentDateSpecificationData": {
+                "type": "object",
+                "properties": {
+                    "hireDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "personStartDateAtCompany": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "firstHireDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "serviceAwardDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "vacationServiceDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "personStartDateInCountry": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "acquiredCompanyHireDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "jobEntryDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "probationEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "externalStaffSCOCTrainingDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "correlationId": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ErrorMessageResult": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "$ref": "#/components/schemas/Error"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EventProfileData": {
+                "type": "object",
+                "properties": {
+                    "emailAlias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "businessId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PartitionKey": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "EventType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "EventSubType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageType": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "EffectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "CorrelationId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "version": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "majorVersion": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "CompetitorName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "inboundOffset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "outboundOffset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apiOffset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "eisJsonString": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "regionId": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "regionEndpoint": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EventResponse": {
+                "type": "object",
+                "properties": {
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "eventType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "eventTypeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "eventSubTypeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "eventSubType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "version": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "emailAlias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "competitorName": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EventsResponse": {
+                "type": "object",
+                "properties": {
+                    "lastOffset": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EventResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ExternalStaffAssignmentDetailData": {
+                "type": "object",
+                "properties": {
+                    "externalStaffEarliestReturnDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "externalStaffMaxEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "externalStaffPolicyStartDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "externalStaffPolicyExtension": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffPolicyException": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffAssignmentEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "externalStaffWithinPolicy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "esReacquire": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fteToEsConvert": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffPhysicalWorkLocation": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffRoom": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffWorkCity": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffWorkCountry": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffWorkRegion": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalStaffBuildingID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ExternalStaffSupplierDetailData": {
+                "type": "object",
+                "properties": {
+                    "supplierChange": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "supplierId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "supplierDisplayName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ExternalStaffWorkOrderDetailData": {
+                "type": "object",
+                "properties": {
+                    "reportsToManager": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "purchaseOrderNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workForceClass": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workOrderEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "workOrderStartDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "paymentMethod": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "purchaseOrderChange": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "FinanceCompanyData": {
+                "type": "object",
+                "properties": {
+                    "costCenter": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "companyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ICandidacy": {
+                "type": "object",
+                "properties": {
+                    "candidacyID": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IEmergencyContactInfo": {
+                "type": "object",
+                "properties": {
+                    "addressLine1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine4": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "city": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "districtOrCounty": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "emergencyContactRelationship": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IPhoneInfo"
+                        },
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "primaryEmergencyContactIndicator": {
+                        "type": "boolean"
+                    },
+                    "region": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IEmployeeClassification": {
+                "type": "object",
+                "properties": {
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "actualWeeklyHours": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "assignmentInformationID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "businessId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "employmentPercent": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "externalStaffWorkerIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "fullTimeWeeklyHours": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "shiftIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "shiftPercent": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IncentivePlanData": {
+                "type": "object",
+                "properties": {
+                    "incentivePlanId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPersonalAddress": {
+                "type": "object",
+                "properties": {
+                    "addressCity": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressDistrict": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine3": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine4": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine5": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine6": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressLine7": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressPostalCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressRegionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressTypeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "county": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "percentage": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "zipCode": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPersonalContact": {
+                "type": "object",
+                "properties": {
+                    "countryCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneTypeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "primaryPhoneNumberIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "telephoneNumber": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPersonEmail": {
+                "type": "object",
+                "properties": {
+                    "emailAddress": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "emailType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "primaryEmailAddressIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPersonnelDetails": {
+                "type": "object",
+                "properties": {
+                    "businessId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "crossBorderWorkerIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "noticePeriodToCurrentEmployer": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "personnelStatus": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "personnelStatusId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "resourceAccessAgreementSignedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPhone": {
+                "type": "object",
+                "properties": {
+                    "countryCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneTypeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "primaryPhoneNumberIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "telephoneNumber": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IPhoneInfo": {
+                "type": "object",
+                "properties": {
+                    "phoneNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneNumberCountryCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneType": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "JobTitleTaxonomyDetailData": {
+                "type": "object",
+                "properties": {
+                    "standardTitleId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "qualifier2Id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "qualifier1Id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "professionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "careerStageId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "businessCardTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "disciplineId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MaritalStatusData": {
+                "type": "object",
+                "properties": {
+                    "maritalStatusCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "maritalStatusEffectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OrganizationData": {
+                "type": "object",
+                "properties": {
+                    "organizationExecutiveSummaryId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "channelOrganizationId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "organizationExecutiveFunctionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "organizationDetailId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "functionSummaryId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "functionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "functionDetailId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PayScaleData": {
+                "type": "object",
+                "properties": {
+                    "geozoneId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payGradeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payRangeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payScaleAreaId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payScaleTypeId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "employeeLevelId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "incentivePlanId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payScaleLevelId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payScaleTypeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PersonalData": {
+                "type": "object",
+                "properties": {
+                    "phoneNumberCollection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IPersonalContact"
+                        },
+                        "nullable": true
+                    },
+                    "personalAddressCollection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IPersonalAddress"
+                        },
+                        "nullable": true
+                    },
+                    "personEmailCollection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IPersonEmail"
+                        },
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PersonBiographicalInformationData": {
+                "type": "object",
+                "properties": {
+                    "dateOfBirth": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "countryOfBirth": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "genderCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "preferredLanguageCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "bilingualismCategoryID": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "censusMetropolitanAreaID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "motherMaidenName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PersonNameData": {
+                "type": "object",
+                "properties": {
+                    "salutation": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "nameSuffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "academicTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "middleInitial": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "preferredLastName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "preferredFirstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "addressBookDifferentiator": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PersonnelData": {
+                "type": "object",
+                "properties": {
+                    "employmentClassification": {
+                        "$ref": "#/components/schemas/IEmployeeClassification"
+                    },
+                    "personnel": {
+                        "$ref": "#/components/schemas/IPersonnelDetails"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PersonPosition": {
+                "type": "object",
+                "properties": {
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "changedEntities": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PositionDetailsResponse": {
+                "type": "object",
+                "properties": {
+                    "payScale": {
+                        "$ref": "#/components/schemas/PayScaleData"
+                    },
+                    "reportsTo": {
+                        "$ref": "#/components/schemas/ReportsToData"
+                    },
+                    "project": {
+                        "$ref": "#/components/schemas/ProjectData"
+                    },
+                    "requisition": {
+                        "$ref": "#/components/schemas/RequisitionData"
+                    },
+                    "detail": {
+                        "$ref": "#/components/schemas/DetailData"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/OrganizationData"
+                    },
+                    "externalStaffSupplierDetail": {
+                        "$ref": "#/components/schemas/ExternalStaffSupplierDetailData"
+                    },
+                    "externalStaffWorkOrderDetail": {
+                        "$ref": "#/components/schemas/ExternalStaffWorkOrderDetailData"
+                    },
+                    "workLocation": {
+                        "$ref": "#/components/schemas/WorkLocationData"
+                    },
+                    "FinanceCompany": {
+                        "$ref": "#/components/schemas/FinanceCompanyData"
+                    },
+                    "jobTitleTaxonomyDetail": {
+                        "$ref": "#/components/schemas/JobTitleTaxonomyDetailData"
+                    },
+                    "employmentClassification": {
+                        "$ref": "#/components/schemas/EmploymentClassificationData"
+                    },
+                    "incentivePlan": {
+                        "$ref": "#/components/schemas/IncentivePlanData"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProfilePositionData": {
+                "type": "object",
+                "properties": {
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reportsToAlias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "alias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProfileResponse": {
+                "type": "object",
+                "properties": {
+                    "externalStaffAssignmentDetail": {
+                        "$ref": "#/components/schemas/ExternalStaffAssignmentDetailData"
+                    },
+                    "candidate": {
+                        "$ref": "#/components/schemas/CandidateData"
+                    },
+                    "emergencyContact": {
+                        "$ref": "#/components/schemas/EmergencyContactData"
+                    },
+                    "maritalStatus": {
+                        "$ref": "#/components/schemas/MaritalStatusData"
+                    },
+                    "personnelData": {
+                        "$ref": "#/components/schemas/PersonnelData"
+                    },
+                    "profilePosition": {
+                        "$ref": "#/components/schemas/ProfilePositionData"
+                    },
+                    "employeeAddressBookTitle": {
+                        "$ref": "#/components/schemas/AddressBookTitleData"
+                    },
+                    "citizenship": {
+                        "$ref": "#/components/schemas/CitizenshipData"
+                    },
+                    "employmentDateSpecification": {
+                        "$ref": "#/components/schemas/EmploymentDateSpecificationData"
+                    },
+                    "personBiographicalInformation": {
+                        "$ref": "#/components/schemas/PersonBiographicalInformationData"
+                    },
+                    "personalData": {
+                        "$ref": "#/components/schemas/PersonalData"
+                    },
+                    "personName": {
+                        "$ref": "#/components/schemas/PersonNameData"
+                    },
+                    "workData": {
+                        "$ref": "#/components/schemas/WorkData"
+                    },
+                    "workLocation": {
+                        "$ref": "#/components/schemas/ProfileWorkLocationData"
+                    },
+                    "basePay": {
+                        "$ref": "#/components/schemas/BasePayData"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProfileWorkLocationData": {
+                "type": "object",
+                "properties": {
+                    "workRoom": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workingInDifferentCountryIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "workSpaceType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProjectData": {
+                "type": "object",
+                "properties": {
+                    "projectCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ReportsToData": {
+                "type": "object",
+                "properties": {
+                    "reportsToPositionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reportsToManagerAlias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reportsToManagerPersonnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RequisitionData": {
+                "type": "object",
+                "properties": {
+                    "requisitionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "onboardingContact": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkData": {
+                "type": "object",
+                "properties": {
+                    "phoneDetails": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IPhone"
+                        },
+                        "nullable": true
+                    },
+                    "emailAlias": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fullEmailAddress": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "upn": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "personnelNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkLocationData": {
+                "type": "object",
+                "properties": {
+                    "workCountry": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workCity": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "buildingId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workRegion": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workRoom": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workinginDifferentCountryIndicator": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "positionNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "oauth2": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/authorize",
+                        "tokenUrl": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token",
+                        "scopes": {
+                            "user_impersonation": "Access Entity Api"
+                        }
+                    }
+                }
+            },
+            "Bearer": {
+                "type": "apiKey",
+                "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "oauth2": [
+                "user_impersonation"
+            ],
+            "Bearer": [
+                ""
+            ]
+        }
+    ],
+    "tags": [
+        {
+            "name": "PositionDetails",
+            "description": "Retreive Position entites data"
+        },
+        {
+            "name": "ProfileDetails",
+            "description": "Retreive Profile entites data"
+        }
+    ]
+}
